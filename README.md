@@ -24,7 +24,7 @@ The workflow is divided into three main stages, each executed by a dedicated R s
 To credit this tool in academic work, please use the following citation:
 
 ```
-SILVEIRA, Gabriel M. da. (2025). COMPASS: Corpus Mapper for Phonetical And Syllabic Structures (v1.0-beta) [Software]. GitHub. [https://github.com/](https://github.com/)[SEU-USUARIO]/[NOME-DO-REPOSITORIO]
+SILVEIRA, Gabriel M. da. (2025). COMPASS: Corpus Mapper for Phonetical And Syllabic Structures (v1.0-beta) [Software]. GitHub. [https://github.com/](https://github.com/)[gabriellmagal]/[COMPASS]
 ```
 
 ### Contact
@@ -33,3 +33,4 @@ For questions, suggestions, or collaborations, please contact: *gabriellmagallha
 
 ---
 © 2025, Gabriel Magalhães da Silveira. All rights reserved.
+
