@@ -31,7 +31,8 @@ SILVEIRA, Gabriel M. da. (2025). COMPASS: Corpus Mapper for Phonetical And Sylla
 
 ### Contato
 
-Para dúvidas, sugestões ou colaborações, entre em contato através do e-mail: *[seu.email@instituicao.br]*
+Para dúvidas, sugestões ou colaborações, entre em contato através do e-mail: *[gabriellmagallhaes@gmail.com]*
 
 ---
 © 2025, [Gabriel Magalhães da Silveira]. Todos os direitos reservados.
+
