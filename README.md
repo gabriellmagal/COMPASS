@@ -17,7 +17,7 @@ The workflow is divided into three main stages, each executed by a dedicated R s
 
 1.  **Syllabic Structuring:** The first script processes the raw `.TextGrid` files from MFA, enriching the alignment by adding a syllable tier with phonetic syllabification and stress placement information.
 2.  **Indexing and In-depth Analysis:** The second script further analyzes the structure by classifying each phone (as Onset, Nucleus, or Coda) and consolidates all files into a single, query-optimized database (`.rds` file), enriching it with lemma and part-of-speech information.
-3.  **Interactive Search and Exploration:** The final component is the graphical user interface (a Shiny app), which allows the researcher to visually explore the database, perform complex queries, and extract the corresponding audio segments and `.TextGrid` annotations.
+3.  **Interactive Search and Exploration:** The final component is the graphical user interface (a Shiny app), which allows the researcher to perform complex queries, visually explore the results through an interactive **Key Word in Context (KWIC)** display, and extract the corresponding audio segments and `.TextGrid` annotations.
 
 ### How to Cite this Tool
 
@@ -33,5 +33,6 @@ For questions, suggestions, or collaborations, please contact: *gabriellmagallha
 
 ---
 © 2025, Gabriel Magalhães da Silveira. All rights reserved.
+
 
 
