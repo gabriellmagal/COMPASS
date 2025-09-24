@@ -2,11 +2,9 @@
 #### *Corpus Mapper for Phonetical And Syllabic Structures*
 ---
 
-[![Shiny App](https://img.shields.io/badge/shiny-app-blue?style=for-the-badge&logo=rstudio)](https://gabrielmagal.shinyapps.io/COMPASS/)
-
 Developed by:
 **Gabriel Magalhães da Silveira**
-<br>*Federal University of Minas Gerais (UFMG)*
+<br>*Universidade Federal de Minas Gerais (UFMG)*
 <br>Belo Horizonte, Brazil, 2025
 
 ---
@@ -25,7 +23,9 @@ The workflow is divided into three main stages, each executed by a dedicated R s
 
 A public version of the **COMPASS** interface is available for demonstration purposes. It runs on a sample `.TextGrid` file and allows for the exploration of all search functionalities.
 
-**[Click here to access the COMPASS online demo](https://gabrielmagal.shinyapps.io/COMPASS/)**
+**Click below to access the COMPASS online demo**
+
+[![Shiny App](https://img.shields.io/badge/shiny-app-blue?style=for-the-badge&logo=rstudio)](https://gabrielmagal.shinyapps.io/COMPASS/)
 
 ### Local Usage and Installation
 
@@ -47,3 +47,4 @@ For questions, suggestions, or collaborations, please contact: *gabriellmagallha
 
 ---
 © 2025, Gabriel Magalhães da Silveira. All rights reserved.
+
