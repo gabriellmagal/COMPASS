@@ -255,7 +255,7 @@ server <- function(input, output, session) {
         p(em("gabriellmagallhaes@gmail.com")),
         br(),
         br(),
-        p("© 2025, Gabriel Magalhães da Silveira. All rights reserved.")
+        p("© 2025, Gabriel Magalhães da Silveira.")
         
       )
       
@@ -607,4 +607,5 @@ server <- function(input, output, session) {
 
 # --- APPSHINY ---
 shinyApp(ui, server)
+
 
