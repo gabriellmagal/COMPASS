@@ -248,7 +248,7 @@ server <- function(input, output, session) {
         
         hr(),
         h4("About"),
-        p("the", strong("COMPASS"), "Shiny application serves as the interactive graphical user interface for the pre-processed phonological database. It empowers researchers to perform complex, multi-layered queries by combining a variety of structural and segmental filters. Users can specify criteria such as", strong("syllable tonicity"), "(e.g., tonic, pre-tonic)", strong("intra-syllabic position"), "(Onset, Nucleus, Coda), and a wide range of", strong("phonetic descriptions"), "like place and manner of articulation. The interface features a dynamic filtering system where menus intelligently update to show only valid feature combinations based on the current selections. Query results are presented in a clear", em("Key Word in Context"), "(KWIC) format, and the application alopens for the direct extraction of selected occurrences, enabling users to download the corresponding audio segments and", em(".TextGrid"), "files for further analysis."),
+        p("the", strong("COMPASS"), "Shiny application serves as the interactive graphical user interface for the pre-processed phonetical database. It empowers researchers to perform complex, multi-layered queries by combining a variety of structural and segmental filters. Users can specify criteria such as", strong("syllable tonicity"), "(e.g., tonic, pre-tonic)", strong("intra-syllabic position"), "(Onset, Nucleus, Coda), and a wide range of", strong("phonetic descriptions"), "like place and manner of articulation. The interface features a dynamic filtering system where menus intelligently update to show only valid feature combinations based on the current selections. Query results are presented in a clear", em("Key Word in Context"), "(KWIC) format, and the application alopens for the direct extraction of selected occurrences, enabling users to download the corresponding audio segments and", em(".TextGrid"), "files for further analysis."),
         br(),
         h4("Contact"),
         p("For questions, suggestions, or collaborations, please contact:"),
@@ -607,5 +607,6 @@ server <- function(input, output, session) {
 
 # --- APPSHINY ---
 shinyApp(ui, server)
+
 
 
