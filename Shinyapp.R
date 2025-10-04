@@ -47,6 +47,8 @@ TABELA_DESC <- tribble(
   "d",   "plosive",    "dental",         "voiced",     NA,           NA,             "oral",
   "k",   "plosive",    "velar",          "voiceless",  NA,           NA,             "oral",
   "g",   "plosive",    "velar",          "voiced",     NA,           NA,             "oral",
+  "c",   "plosive",    "palatal",        "voiceless",  NA,           NA,             "oral",
+  "ɟ",   "plosive",    "palatal",        "voiced",     NA,           NA,             "oral",
   "f",   "fricative",  "labiodental",    "voiceless",  NA,           NA,             "oral",
   "v",   "fricative",  "labiodental",    "voiced",     NA,           NA,             "oral",
   "s",   "fricative",  "alveolar",       "voiceless",  NA,           NA,             "oral",
@@ -67,7 +69,9 @@ TABELA_DESC <- tribble(
   "ʎ",   "lateral",    "palatal",        "voiced",     NA,           NA,             "oral", 
   "ɾ",   "tap",        "alveolar",       "voiced",     NA,           NA,             "oral", 
   "j",   "approximant","palatal",        "voiced",     NA,           NA,             "oral", 
-  "w",   "approximant","labiovelar",     "voiced",     NA,           NA,             "oral", 
+  "w",   "approximant","labiovelar",     "voiced",     NA,           NA,             "oral",
+  "j̃",   "approximant","palatal",        "voiced",     NA,           NA,             "nasal", 
+  "w̃",   "approximant","labiovelar",     "voiced",     NA,           NA,             "nasal"
   "i",   "vowel",      NA,               "voiced",     "close",       "front",        "oral",
   "e",   "vowel",      NA,               "voiced",     "close-mid",   "front",        "oral",
   "ɛ",   "vowel",      NA,               "voiced",     "open-mid",    "front",        "oral",
@@ -607,6 +611,7 @@ server <- function(input, output, session) {
 
 # --- APPSHINY ---
 shinyApp(ui, server)
+
 
 
 
