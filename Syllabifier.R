@@ -1,4 +1,4 @@
-# COMPASS: Corpus Mapper for Phonetical And Syllabic Structures
+# COMPASS: Corpus Mapper for Phonetic And Syllabic Structures
 # Copyright (C) 2025  Gabriel Magalhães da Silveira
 #
 # This program is free software: you can redistribute it and/or modify
@@ -220,3 +220,4 @@ for (nome_arquivo_base in arquivos_tg_nomes) {
 
 
 cat("\n--- Process completed! ---\n")
+
