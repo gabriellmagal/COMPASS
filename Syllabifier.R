@@ -27,22 +27,24 @@ library(dplyr)
 cat("Starting Automatic Syllabifier...\n\n")
 
 # --- DEFINIÇÕES  ---
-VOGAIS_IPA <- c("i","e","ɛ","a","u","o","ɔ","ɨ","ɐ","ĩ","ẽ","ã","õ","ũ","ɐ̃","ĩ","ẽ","ã","õ","ũ")
+VOGAIS_IPA <- c("i","e","ɛ","a","u","o","ɔ","ɨ","ɐ","ĩ","ẽ","ã","õ","ũ","ɐ̃")
 CONSOANTES_IPA <- c("p","b","t","d","ð","k","g","f","v","s","z","ʃ","ʒ","m","n","ɲ","l","ʎ","ɾ","ʁ","x","c","ɡ","ɟ","β")
 GLIDES_IPA <- c("w", "j")
-TODOS_FONEMAS <- c(VOGAIS_IPA, CONSOANTES_IPA, ACENTO_TONICO, "tʃ", "dʒ", "ˈ")
+AFRICADAS_IPA <- c("tʃ", "dʒ")
+ACENTO_TONICO <- "ˈ"
+TODOS_FONEMAS <- c(VOGAIS_IPA, CONSOANTES_IPA, GLIDES_IPA, AFRICADAS_IPA, ACENTO_TONICO)
+
 ATAQUES_VALIDOS <- c(
-  # Ataques Simples (C)
-  "p","b","t","d","k","g","f","v","s","z","ʃ","ʒ","m","n","ɲ","l","ʎ","ɾ","ʁ","x","β","ð","c","ɡ","ɟ",
-  # Ataques Simples (G)
-  "w", "j",
+  # Ataques Simples (C e G)
+  CONSOANTES_IPA, GLIDES_IPA, AFRICADAS_IPA,
   # Ataques Complexos (CC)
-  "pl","bl","kl","gl","fl","vl","pɾ","bɾ","tɾ","dɾ","kɾ","gɾ","fɾ","vɾ",
+  "pl","bl","kl","ɡl","fl","vl","pɾ","bɾ","tɾ","dɾ","kɾ","ɡɾ","fɾ","vɾ",
   # Ataques Complexos (CG) - Consoante + Glide
-  "kw", "gw", "bj", "pj", "kj", "gj", "mj", "nj", "lj", "fj", "vj", "sj", "zj", "ʃj", "ʒj",
-  # Ataques de Africadas
-  "tʃ", "dʒ" 
+  "kw", "ɡw", "bj", "pj", "kj", "ɡj", "mj", "nj", "lj", "fj", "vj", "sj", "zj", "ʃj", "ʒj"
 )
+# Remove duplicatas caso alguma consoante simples esteja nas listas complexas
+ATAQUES_VALIDOS <- unique(ATAQUES_VALIDOS)
+
 tokenizar_ipa <- function(transcricao, fonemas_conhecidos) {
   fonemas_ordenados <- fonemas_conhecidos[order(nchar(fonemas_conhecidos), decreasing = TRUE)]
   tokens <- c()
@@ -68,8 +70,7 @@ tokenizar_ipa <- function(transcricao, fonemas_conhecidos) {
 silabificar_sem_tonica <- function(transcricao_fonetica) {
   if (is.na(transcricao_fonetica) || nchar(transcricao_fonetica) == 0) return("")
   
-  # Tokeniza usando a lista completa de fonemas
-  fonemas <- tokenizar_ipa(transcricao_fonetica, c(VOGAIS_IPA, CONSOANTES_IPA, GLIDES_IPA, "tʃ", "dʒ"))
+  fonemas <- tokenizar_ipa(transcricao_fonetica, c(VOGAIS_IPA, CONSOANTES_IPA, GLIDES_IPA, AFRICADAS_IPA))
   if (length(fonemas) == 0) return("")
   
   indices_vogais <- which(fonemas %in% VOGAIS_IPA)
@@ -82,29 +83,27 @@ silabificar_sem_tonica <- function(transcricao_fonetica) {
     vogal2_idx <- indices_vogais[i+1]
     
     indices_cluster <- (vogal1_idx + 1):(vogal2_idx - 1)
-    num_consoantes <- length(indices_cluster)
+    num_consoantes_intervocalicas <- length(indices_cluster)
     
-    if (num_consoantes == 0) { # Hiato (V.V)
+    if (num_consoantes_intervocalicas == 0) { # Hiato (V.V)
       pontos_de_quebra <- c(pontos_de_quebra, vogal2_idx)
+      
     } else {
       # Lógica da Máxima Onset: Encontrar o maior ataque válido
-      cluster_fones <- fonemas[indices_cluster]
-      melhor_quebra <- vogal2_idx - 1 # Padrão VC.V (ex: 'par.to')
+      melhor_quebra_idx <- vogal2_idx - 1 # Padrão VC.V (ex: 'par.to')
       
-      # Tenta mover a quebra para a esquerda, um fone de cada vez
-      for (k in 1:num_consoantes) {
-        idx_inicio_ataque <- vogal2_idx - k
-        ataque_potencial <- paste(fonemas[idx_inicio_ataque:(vogal2_idx - 1)], collapse = "")
+      # Testa todos os ataques possíveis, do maior para o menor
+      for (k in num_consoantes_intervocalicas:1) {
+        idx_inicio_ataque_potencial <- vogal2_idx - k
+        ataque_potencial <- paste(fonemas[idx_inicio_ataque_potencial:(vogal2_idx - 1)], collapse = "")
         
         if (ataque_potencial %in% ATAQUES_VALIDOS) {
-          # Encontramos um ataque válido, então a quebra é ANTES dele
-          melhor_quebra <- idx_inicio_ataque
-        } else {
-          # Se o ataque não é válido, paramos de procurar
-          break
+          # Encontramos um ataque válido, a quebra é ANTES dele
+          melhor_quebra_idx <- idx_inicio_ataque_potencial
+          break # Encontramos o ataque MÁXIMO, não precisamos testar menores
         }
       }
-      pontos_de_quebra <- c(pontos_de_quebra, melhor_quebra)
+      pontos_de_quebra <- c(pontos_de_quebra, melhor_quebra_idx)
     }
   }
   
@@ -237,6 +236,3 @@ for (nome_arquivo_base in arquivos_tg_nomes) {
 
 
 cat("\n--- Process completed! ---\n")
-
-
-
