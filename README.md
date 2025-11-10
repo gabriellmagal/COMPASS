@@ -1,5 +1,5 @@
 # COMPASS
-#### *Corpus Mapper for Phonetical And Syllabic Structures*
+#### *Corpus Mapper for Phonetic And Syllabic Structures*
 ---
 
 Developed by:
@@ -38,7 +38,7 @@ The local toolkit allows you to process entire folders of MFA-aligned TextGrids 
 To credit this tool in academic work, please use the following citation:
 
 ```
-SILVEIRA, Gabriel M. da. (2025). COMPASS: Corpus Mapper for Phonetical And Syllabic Structures. GitHub. https://github.com/gabriellmagal/COMPASS
+SILVEIRA, Gabriel M. da. (2025). COMPASS: Corpus Mapper for Phonetic And Syllabic Structures. GitHub. https://github.com/gabriellmagal/COMPASS
 ```
 
 ### Contact
@@ -50,4 +50,5 @@ For questions, suggestions, or collaborations, please contact: *gabriellmagallha
 ### License
 
 This project is licensed under the GNU Affero General Public License v3.0. See the [LICENSE](LICENSE) file for full details.
+
 
