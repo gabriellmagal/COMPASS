@@ -28,12 +28,21 @@ cat("Starting Automatic Syllabifier...\n\n")
 
 # --- DEFINIÇÕES  ---
 VOGAIS_IPA <- c("i","e","ɛ","a","u","o","ɔ","ɨ","ɐ","ĩ","ẽ","ã","õ","ũ","ɐ̃","ĩ","ẽ","ã","õ","ũ")
-CONSOANTES_IPA <- c("tʃ","dʒ","p","b","t","d","ð","k","g","f","v","s","z","ʃ","ʒ","m","n","ɲ","l","ʎ","ɾ","ʁ","w","j","x","c","ɡ","ɟ","β")
-ACENTO_TONICO <- "ˈ"
-TODOS_FONEMAS <- c(VOGAIS_IPA, CONSOANTES_IPA, ACENTO_TONICO)
-INICIOS_VALIDOS_CC <- c('pl','bl','kl','gl','fl','vl','pɾ','bɾ','tɾ','dɾ','kɾ','gɾ','fɾ','vɾ','ʃɾ','ʒɾ')
-INICIOS_VALIDOS_CG <- c('kw', 'gw', 'bj', 'pj', 'kj', 'gj', 'mj', 'nj', 'lj', 'fj', 'vj', 'sj', 'zj', 'ʃj', 'ʒj')
-
+CONSOANTES_IPA <- c("p","b","t","d","ð","k","g","f","v","s","z","ʃ","ʒ","m","n","ɲ","l","ʎ","ɾ","ʁ","x","c","ɡ","ɟ","β")
+GLIDES_IPA <- c("w", "j")
+TODOS_FONEMAS <- c(VOGAIS_IPA, CONSOANTES_IPA, ACENTO_TONICO, "tʃ", "dʒ", "ˈ")
+ATAQUES_VALIDOS <- c(
+  # Ataques Simples (C)
+  "p","b","t","d","k","g","f","v","s","z","ʃ","ʒ","m","n","ɲ","l","ʎ","ɾ","ʁ","x","β","ð","c","ɡ","ɟ",
+  # Ataques Simples (G)
+  "w", "j",
+  # Ataques Complexos (CC)
+  "pl","bl","kl","gl","fl","vl","pɾ","bɾ","tɾ","dɾ","kɾ","gɾ","fɾ","vɾ",
+  # Ataques Complexos (CG) - Consoante + Glide
+  "kw", "gw", "bj", "pj", "kj", "gj", "mj", "nj", "lj", "fj", "vj", "sj", "zj", "ʃj", "ʒj",
+  # Ataques de Africadas
+  "tʃ", "dʒ" 
+)
 tokenizar_ipa <- function(transcricao, fonemas_conhecidos) {
   fonemas_ordenados <- fonemas_conhecidos[order(nchar(fonemas_conhecidos), decreasing = TRUE)]
   tokens <- c()
@@ -59,7 +68,8 @@ tokenizar_ipa <- function(transcricao, fonemas_conhecidos) {
 silabificar_sem_tonica <- function(transcricao_fonetica) {
   if (is.na(transcricao_fonetica) || nchar(transcricao_fonetica) == 0) return("")
   
-  fonemas <- tokenizar_ipa(transcricao_fonetica, c(VOGAIS_IPA, CONSOANTES_IPA))
+  # Tokeniza usando a lista completa de fonemas
+  fonemas <- tokenizar_ipa(transcricao_fonetica, c(VOGAIS_IPA, CONSOANTES_IPA, GLIDES_IPA, "tʃ", "dʒ"))
   if (length(fonemas) == 0) return("")
   
   indices_vogais <- which(fonemas %in% VOGAIS_IPA)
@@ -74,39 +84,28 @@ silabificar_sem_tonica <- function(transcricao_fonetica) {
     indices_cluster <- (vogal1_idx + 1):(vogal2_idx - 1)
     num_consoantes <- length(indices_cluster)
     
-    if (num_consoantes == 0) { # Hiato (V.V), como em 'sa.i.da'
+    if (num_consoantes == 0) { # Hiato (V.V)
       pontos_de_quebra <- c(pontos_de_quebra, vogal2_idx)
+    } else {
+      # Lógica da Máxima Onset: Encontrar o maior ataque válido
+      cluster_fones <- fonemas[indices_cluster]
+      melhor_quebra <- vogal2_idx - 1 # Padrão VC.V (ex: 'par.to')
       
-    } else if (num_consoantes == 1) { # VCV, como em 'ca.sa'
-      pontos_de_quebra <- c(pontos_de_quebra, vogal2_idx - 1)
-      
-    } else if (num_consoantes == 2) { # VCCV
-      cluster_fonemas <- fonemas[indices_cluster]
-      cluster_str <- paste(cluster_fonemas, collapse="")
-      
-      # Verifica se é um ataque complexo válido (CC ou CG)
-      if (cluster_str %in% INICIOS_VALIDOS_CC || cluster_str %in% INICIOS_VALIDOS_CG) {
-        # Caso V.CCV (ex: 'a.pra.to') ou V.CGV (ex: 'li.gwa')
-        pontos_de_quebra <- c(pontos_de_quebra, vogal2_idx - 2)
-      } else {
-        # Caso VC.CV (ex: 'par.to')
-        pontos_de_quebra <- c(pontos_de_quebra, vogal2_idx - 1)
+      # Tenta mover a quebra para a esquerda, um fone de cada vez
+      for (k in 1:num_consoantes) {
+        idx_inicio_ataque <- vogal2_idx - k
+        ataque_potencial <- paste(fonemas[idx_inicio_ataque:(vogal2_idx - 1)], collapse = "")
+        
+        if (ataque_potencial %in% ATAQUES_VALIDOS) {
+          # Encontramos um ataque válido, então a quebra é ANTES dele
+          melhor_quebra <- idx_inicio_ataque
+        } else {
+          # Se o ataque não é válido, paramos de procurar
+          break
+        }
       }
-      
-    } else if (num_consoantes == 3) { # VCCCV
-      cluster_fonemas <- fonemas[indices_cluster]
-      
-      # Verifica se os dois últimos formam um ataque complexo (ex: V[C].[CC]V)
-      dois_ultimos_str <- paste(cluster_fonemas[2:3], collapse="")
-      if (dois_ultimos_str %in% INICIOS_VALIDOS_CC || dois_ultimos_str %in% INICIOS_VALIDOS_CG) {
-        # Caso VC.CCV (ex: 'cons.tru.ir')
-        pontos_de_quebra <- c(pontos_de_quebra, vogal2_idx - 2)
-      } else {
-        # Caso VCC.CV (regra geral, mais rara)
-        pontos_de_quebra <- c(pontos_de_quebra, vogal2_idx - 1)
-      }
+      pontos_de_quebra <- c(pontos_de_quebra, melhor_quebra)
     }
-    # (Pode-se adicionar lógica para 4 consoantes, mas é raro)
   }
   
   # Constrói a string final com base nos pontos de quebra
@@ -238,5 +237,6 @@ for (nome_arquivo_base in arquivos_tg_nomes) {
 
 
 cat("\n--- Process completed! ---\n")
+
 
 
