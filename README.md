@@ -36,6 +36,7 @@ The local toolkit allows you to process entire folders of MFA-aligned TextGrids 
 ### How to Cite this Tool
 
 To credit this tool in academic work, please use the following citation:
+
 **Plain Text (ABNT):**
 ```
 SILVEIRA, Gabriel M. da. (2025). COMPASS: Corpus Mapper for Phonetic And Syllabic Structures. GitHub. https://github.com/gabriellmagal/COMPASS
@@ -71,6 +72,7 @@ For questions, suggestions, or collaborations, please contact: *gabriellmagallha
 ### License
 
 This project is licensed under the GNU Affero General Public License v3.0. See the [LICENSE](LICENSE) file for full details.
+
 
 
 
