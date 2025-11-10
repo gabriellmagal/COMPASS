@@ -36,11 +36,32 @@ The local toolkit allows you to process entire folders of MFA-aligned TextGrids 
 ### How to Cite this Tool
 
 To credit this tool in academic work, please use the following citation:
-
+**Plain Text (ABNT):**
 ```
 SILVEIRA, Gabriel M. da. (2025). COMPASS: Corpus Mapper for Phonetic And Syllabic Structures. GitHub. https://github.com/gabriellmagal/COMPASS
 ```
-
+**BibLaTeX (`@software` entry - recommended for Biber):**
+```bibtex
+@software{Silveira2025_COMPASS,
+  author    = {Gabriel Magalh{\~a}es da Silveira},
+  title     = {COMPASS: Corpus Mapper for Phonetic And Syllabic Structures},
+  year      = {2025},
+  publisher = {GitHub},
+  version   = {1.0.0},
+  url       = {[https://github.com/gabriellmagal/COMPASS](https://github.com/gabriellmagal/COMPASS)}
+}
+```
+Traditional BibTeX (@misc entry):
+```
+@misc{Silveira2025_COMPASS_misc,
+  author       = {Gabriel Magalh{\~a}es da Silveira},
+  title        = {COMPASS: Corpus Mapper for Phonetic And Syllabic Structures},
+  year         = {2025},
+  publisher    = {GitHub},
+  howpublished = {\url{[https://github.com/gabriellmagal/COMPASS](https://github.com/gabriellmagal/COMPASS)}},
+  note         = {Accessed: YYYY-MM-DD}
+}
+```
 ### Contact
 
 For questions, suggestions, or collaborations, please contact: *gabriellmagallhaes@gmail.com*
@@ -50,5 +71,6 @@ For questions, suggestions, or collaborations, please contact: *gabriellmagallha
 ### License
 
 This project is licensed under the GNU Affero General Public License v3.0. See the [LICENSE](LICENSE) file for full details.
+
 
 
