@@ -52,8 +52,8 @@ SILVEIRA, Gabriel M. da. (2025). COMPASS: Corpus Mapper for Phonetic And Syllabi
   url       = {[https://github.com/gabriellmagal/COMPASS](https://github.com/gabriellmagal/COMPASS)}
 }
 ```
-Traditional BibTeX (@misc entry):
-```
+**Traditional BibTeX (`@misc` entry):**
+```bibtex
 @misc{Silveira2025_COMPASS_misc,
   author       = {Gabriel Magalh{\~a}es da Silveira},
   title        = {COMPASS: Corpus Mapper for Phonetic And Syllabic Structures},
@@ -72,6 +72,7 @@ For questions, suggestions, or collaborations, please contact: *gabriellmagallha
 ### License
 
 This project is licensed under the GNU Affero General Public License v3.0. See the [LICENSE](LICENSE) file for full details.
+
 
 
 
