@@ -27,7 +27,7 @@ library(dplyr)
 cat("Starting Automatic Syllabifier...\n\n")
 
 # --- DEFINIÇÕES  ---
-VOGAIS_IPA <- c("i","e","ɛ","a","u","o","ɔ","ɨ","ɐ","ĩ","ẽ","ã","õ","ũ","ɐ̃")
+VOGAIS_IPA <- c("i","e","ɛ","a","u","o","ɔ","ɨ","ɐ","ĩ","ẽ","ã","õ","ũ","ɐ̃","ĩ","ẽ","ã","õ","ũ")
 CONSOANTES_IPA <- c("p","b","t","d","ð","k","g","f","v","s","z","ʃ","ʒ","m","n","ɲ","l","ʎ","ɾ","ʁ","x","c","ɡ","ɟ","β")
 GLIDES_IPA <- c("w", "j")
 AFRICADAS_IPA <- c("tʃ", "dʒ")
@@ -236,3 +236,4 @@ for (nome_arquivo_base in arquivos_tg_nomes) {
 
 
 cat("\n--- Process completed! ---\n")
+
