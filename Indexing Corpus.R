@@ -1,4 +1,4 @@
-# COMPASS: Corpus Mapper for Phonetical And Syllabic Structures
+# COMPASS: Corpus Mapper for Phonetic And Syllabic Structures
 # Copyright (C) 2025  Gabriel Magalhães da Silveira
 #
 # This program is free software: you can redistribute it and/or modify
@@ -196,3 +196,4 @@ saveRDS(base_de_dados_final, file = caminho_saida_rds)
 
 
 cat("\n--- PRE-PROCESSING COMPLETE! ---\n")
+
