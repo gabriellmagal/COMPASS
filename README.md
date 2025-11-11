@@ -75,6 +75,8 @@ For questions, suggestions, or collaborations, please contact: *gabriellmagallha
 
 ---
 
+McAuliffe, Michael, Michaela Socolof, Elias Stengel-Eskin, Sarah Mihuc, Michael Wagner, and Morgan Sonderegger (2017). Montreal Forced Aligner [Computer program]. Version 1.0.0, retrieved 05 May 2017 from http://montrealcorpustools.github.io/Montreal-Forced-Aligner/.
+
 BISOL, Leda. A sílaba e seus constituintes. In: NEVES, Maria Helena de Moura (org.). Gramática do Português Falado. Vol. VII: Novos Estudos. São Paulo/Campinas: Humanitas FFLCH/USP e Editora da Unicamp, 1999. p. 701-742.
 
 SILVA, Thaïs Cristófaro. Fonética e Fonologia do Português: Roteiro de estudos e guia de exercícios . 7. ed. São Paulo: Contexto, 2003.
@@ -84,6 +86,7 @@ SILVA, Thaïs Cristófaro. Fonética e Fonologia do Português: Roteiro de estud
 ### License
 
 This project is licensed under the GNU Affero General Public License v3.0. See the [LICENSE](LICENSE) file for full details.
+
 
 
 
