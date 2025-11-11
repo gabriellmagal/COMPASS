@@ -31,7 +31,7 @@ VOGAIS_IPA <- c("i","e","ɛ","a","u","o","ɔ","ɨ","ɐ","ĩ","ẽ","ã","õ","ũ
 # Lista de segmentos não-vocálicos
 CONSOANTES_E_GLIDES_IPA <- c("p","b","t","d","ð","k","g","f","v","s","z","ʃ","ʒ","m","n","ɲ","l","ʎ","ɾ","ʁ","x","c","ɡ","ɟ","β", "w","w̃","j","j̃", "tʃ", "dʒ")
 ACENTO_TONICO <- "ˈ"
-TODOS_FONEMAS <- c(VOGAIS_IPA, CONSOANTES_E_GLIDES_IPA, ACENTO_TONICO)
+TODOS_FONE <- c(VOGAIS_IPA, CONSOANTES_E_GLIDES_IPA, ACENTO_TONICO)
 
 # Lista de Todos os Ataques Válidos (Simples e Complexos)
 ATAQUES_VALIDOS <- c(
@@ -45,20 +45,20 @@ ATAQUES_VALIDOS <- c(
 # Remove duplicatas caso alguma consoante simples esteja nas listas complexas
 ATAQUES_VALIDOS <- unique(ATAQUES_VALIDOS)
 
-tokenizar_ipa <- function(transcricao, fonemas_conhecidos) {
-  fonemas_ordenados <- fonemas_conhecidos[order(nchar(fonemas_conhecidos), decreasing = TRUE)]
+tokenizar_ipa <- function(transcricao, FONE_conhecidos) {
+  FONE_ordenados <- FONE_conhecidos[order(nchar(FONE_conhecidos), decreasing = TRUE)]
   tokens <- c()
   i <- 1
   while (i <= nchar(transcricao)) {
-    achou_fonema <- FALSE
-    for (fonema in fonemas_ordenados) {
-      if (startsWith(substring(transcricao, i), fonema)) {
-        tokens <- c(tokens, fonema)
-        i <- i + nchar(fonema)
-        achou_fonema <- TRUE; break
+    achou_fone <- FALSE
+    for (fone in FONE_ordenados) {
+      if (startsWith(substring(transcricao, i), fone)) {
+        tokens <- c(tokens, fone)
+        i <- i + nchar(fone)
+        achou_fone <- TRUE; break
       }
     }
-    if (!achou_fonema) {
+    if (!achou_fone) {
       warning(paste("Unknown character or sequence ignored:", substring(transcricao, i, i)))
       i <- i + 1
     }
@@ -71,11 +71,11 @@ silabificar_sem_tonica <- function(transcricao_fonetica) {
   if (is.na(transcricao_fonetica) || nchar(transcricao_fonetica) == 0) return("")
   
   transcricao_limpa <- str_remove_all(transcricao_fonetica, ACENTO_TONICO)
-  fonemas <- tokenizar_ipa(transcricao_limpa, c(VOGAIS_IPA, CONSOANTES_IPA, GLIDES_IPA, AFRICADAS_IPA))
-  if (length(fonemas) == 0) return("")
+  FONE <- tokenizar_ipa(transcricao_limpa, c(VOGAIS_IPA, CONSOANTES_E_GLIDES_IPA, ACENTO_TONICO))
+  if (length(FONE) == 0) return("")
   
-  indices_vogais <- which(fonemas %in% VOGAIS_IPA)
-  if (length(indices_vogais) <= 1) return(paste(fonemas, collapse=""))
+  indices_vogais <- which(FONE %in% VOGAIS_IPA)
+  if (length(indices_vogais) <= 1) return(paste(FONE, collapse=""))
   
   pontos_de_quebra <- c() # Armazena os ÍNDICES onde a nova sílaba começa
   
@@ -95,7 +95,7 @@ silabificar_sem_tonica <- function(transcricao_fonetica) {
       # Testa do menor ataque (k=1) para o maior (k=num_fones_cluster)
       for (k in 1:num_fones_cluster) {
         idx_inicio_ataque_potencial <- vogal2_idx - k
-        ataque_potencial <- paste(fonemas[idx_inicio_ataque_potencial:(vogal2_idx - 1)], collapse = "")
+        ataque_potencial <- paste(FONE[idx_inicio_ataque_potencial:(vogal2_idx - 1)], collapse = "")
         
         if (ataque_potencial %in% ATAQUES_VALIDOS) {
           # Se é um ataque válido, movemos a quebra para antes dele
@@ -115,11 +115,11 @@ silabificar_sem_tonica <- function(transcricao_fonetica) {
   
   for (ponto in pontos_unicos) {
     if (ponto > inicio_silaba) {
-      resultado <- paste0(resultado, paste(fonemas[inicio_silaba:(ponto-1)], collapse=""), ".")
+      resultado <- paste0(resultado, paste(FONE[inicio_silaba:(ponto-1)], collapse=""), ".")
       inicio_silaba <- ponto
     }
   }
-  resultado <- paste0(resultado, paste(fonemas[inicio_silaba:length(fonemas)], collapse=""))
+  resultado <- paste0(resultado, paste(FONE[inicio_silaba:length(FONE)], collapse=""))
   
   return(resultado)
 }
@@ -241,3 +241,4 @@ for (nome_arquivo_base in arquivos_tg_nomes) {
 
 
 cat("\n--- Process completed! ---\n")
+
