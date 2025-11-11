@@ -19,6 +19,14 @@ The workflow is divided into three main stages, each executed by a dedicated R s
 2.  **Indexing and In-depth Analysis:** The second script further analyzes the structure by classifying each phone (as Onset, Nucleus, or Coda) and consolidates all files into a single, query-optimized database (`.rds` file), enriching it with lemma and part-of-speech information.
 3.  **Interactive Search and Exploration:** The final component is the graphical user interface (a Shiny app), which allows the researcher to perform complex queries, visually explore the results through an interactive **Key Word in Context (KWIC)** display, and extract the corresponding audio segments and `.TextGrid` annotations.
 
+### Core Methodology: Syllabification
+
+The "Syllabic Structuring" script (Stage 1) is the phonetic core of COMPASS. It is built upon the universal phonetic principle known as the **Maximum Onset Principle (MOP)**.
+
+This principle dictates that when a consonant cluster appears between two vowels (V**C...C**V), the algorithm must assign the maximum possible number of consonants to the **onset** of the following syllable. This assignment must be consistent with the language's phonotactic constraints, which for Portuguese includes a specific set of valid "tautosyllabic consonantal clusters" **(Silva, 2003)**.
+
+---
+
 ### Online Demo
 
 A public version of the **COMPASS** interface is available for demonstration purposes. It runs on a sample `.TextGrid` file and allows for the exploration of all search functionalities.
@@ -69,9 +77,15 @@ For questions, suggestions, or collaborations, please contact: *gabriellmagallha
 
 ---
 
+BISOL, Leda. A sílaba e seus constituintes. In: NEVES, Maria Helena de Moura (org.). Gramática do Português Falado. Vol. VII: Novos Estudos. São Paulo/Campinas: Humanitas FFLCH/USP e Editora da Unicamp, 1999. p. 701-742.
+SILVA, Thaïs Cristófaro. Fonética e Fonologia do Português: Roteiro de estudos e guia de exercícios . 7. ed. São Paulo: Contexto, 2003.
+
+---
+
 ### License
 
 This project is licensed under the GNU Affero General Public License v3.0. See the [LICENSE](LICENSE) file for full details.
+
 
 
 
