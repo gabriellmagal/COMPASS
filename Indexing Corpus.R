@@ -44,7 +44,7 @@ ud_model <- udpipe_load_model(file = modelo_arquivo)
 cat("Model loaded.\n")
 
 # --- DEFINIÇÕES GLOBAIS ---
-NUCLEUS_IPA <- c("i", "e", "ɛ", "a", "u", "o", "ɔ", "ɨ", "ɐ", "ĩ", "ẽ", "ã", "õ", "ũ", "ɐ̃")
+NUCLEUS_IPA <- c("i","e","ɛ","a","u","o","ɔ","ɨ","ɐ","ĩ","ẽ","ã","õ","ũ","ɐ̃","ĩ","ẽ","ã","õ","ũ")
 DIGRAFOS <- c("tʃ", "dʒ")
 REGEX_FONES <- paste0("(", paste(DIGRAFOS, collapse = "|"), "|.)")
 
@@ -196,4 +196,5 @@ saveRDS(base_de_dados_final, file = caminho_saida_rds)
 
 
 cat("\n--- PRE-PROCESSING COMPLETE! ---\n")
+
 
