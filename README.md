@@ -19,7 +19,7 @@ The workflow is divided into three main stages, each executed by a dedicated R s
 2.  **Indexing and In-depth Analysis:** The second script further analyzes the structure by classifying each phone (as Onset, Nucleus, or Coda) and consolidates all files into a single, query-optimized database (`.rds` file), enriching it with lemma and part-of-speech information.
 3.  **Interactive Search and Exploration:** The final component is the graphical user interface (a Shiny app), which allows the researcher to perform complex queries, visually explore the results through an interactive **Key Word in Context (KWIC)** display, and extract the corresponding audio segments and `.TextGrid` annotations.
 
-### Core Methodology: Syllabification
+### Syllabification
 
 The "Syllabic Structuring" script (Stage 1) is the phonetic core of COMPASS. It is built upon the universal phonetic principle known as the **Maximum Onset Principle (MOP)**.
 
@@ -86,6 +86,7 @@ SILVA, Thaïs Cristófaro. Fonética e Fonologia do Português: Roteiro de estud
 ### License
 
 This project is licensed under the GNU Affero General Public License v3.0. See the [LICENSE](LICENSE) file for full details.
+
 
 
 
