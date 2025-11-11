@@ -75,7 +75,7 @@ For questions, suggestions, or collaborations, please contact: *gabriellmagallha
 
 ---
 
-MCAULIFFE, Michael; SONDEREGGER, Morgan. Portuguese MFA acoustic model v2.0.0 . [ S. l. ], mar. 2022. Disponível em: https://mfa-models.readthedocs.io/en/latest/acoustic/Portuguese/Portuguese%20MFA%20acoustic%20model% 20v2_0_0.html#Portuguese%20MFA%20acoustic%20model%20v2_0_0 .
+MCAULIFFE, Michael; SONDEREGGER, Morgan. Portuguese MFA acoustic model v2.0.0 . [ S. l. ], mar. 2022. Disponível em: [https://mfa-models.readthedocs.io/en/latest/acoustic/Portuguese](https://mfa-models.readthedocs.io/en/latest/acoustic/PortuguesePortuguese%20MFA%20acoustic%20model% 20v2_0_0.html#Portuguese%20MFA%20acoustic%20model%20v2_0_0) .
 
 BISOL, Leda. A sílaba e seus constituintes. In: NEVES, Maria Helena de Moura (org.). Gramática do Português Falado. Vol. VII: Novos Estudos. São Paulo/Campinas: Humanitas FFLCH/USP e Editora da Unicamp, 1999. p. 701-742.
 
@@ -86,6 +86,7 @@ SILVA, Thaïs Cristófaro. Fonética e Fonologia do Português: Roteiro de estud
 ### License
 
 This project is licensed under the GNU Affero General Public License v3.0. See the [LICENSE](LICENSE) file for full details.
+
 
 
 
