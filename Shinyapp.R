@@ -40,53 +40,53 @@ library(shinycssloaders)
 options(shiny.maxRequestSize = 100 * 1024^2)
 
 TABELA_DESC <- tribble(
-  ~fone, ~tipo,        ~ponto,           ~vozeamento,  ~altura,      ~anterioridade, ~nasalidade,
-  "p",   "plosive",    "bilabial",       "voiceless",  NA,           NA,             "oral",
-  "b",   "plosive",    "bilabial",       "voiced",     NA,           NA,             "oral",
-  "t",   "plosive",    "dental",         "voiceless",  NA,           NA,             "oral",
-  "d",   "plosive",    "dental",         "voiced",     NA,           NA,             "oral",
-  "k",   "plosive",    "velar",          "voiceless",  NA,           NA,             "oral",
-  "g",   "plosive",    "velar",          "voiced",     NA,           NA,             "oral",
-  "c",   "plosive",    "palatal",        "voiceless",  NA,           NA,             "oral",
-  "ɟ",   "plosive",    "palatal",        "voiced",     NA,           NA,             "oral",
-  "f",   "fricative",  "labiodental",    "voiceless",  NA,           NA,             "oral",
-  "v",   "fricative",  "labiodental",    "voiced",     NA,           NA,             "oral",
-  "s",   "fricative",  "alveolar",       "voiceless",  NA,           NA,             "oral",
-  "z",   "fricative",  "alveolar",       "voiced",     NA,           NA,             "oral",
-  "ʃ",   "fricative",  "palato-alveolar","voiceless",  NA,           NA,             "oral",
-  "ʒ",   "fricative",  "palato-alveolar","voiced",     NA,           NA,             "oral",
-  "x",   "fricative",  "velar",          "voiceless",  NA,           NA,             "oral", 
-  "ʁ",   "fricative",  "uvular",         "voiced",     NA,           NA,             "oral", 
-  "β",   "fricative",  "bilabial",       "voiced",     NA,           NA,             "oral", 
-  "ð",   "fricative",  "dental",         "voiced",     NA,           NA,             "oral", 
-  "tʃ",  "affricate",  "palato-alveolar","voiceless",  NA,           NA,             "oral", 
-  "dʒ",  "affricate",  "palato-alveolar","voiced",     NA,           NA,             "oral", 
-  "m",   "nasal",      "bilabial",       "voiced",     NA,           NA,             "nasal",
-  "n",   "nasal",      "alveolar",       "voiced",     NA,           NA,             "nasal",
-  "ɲ",   "nasal",      "palatal",        "voiced",     NA,           NA,             "nasal",
-  "ŋ",   "nasal",      "velar",          "voiced",     NA,           NA,             "nasal",
-  "l",   "lateral",    "alveolar",       "voiced",     NA,           NA,             "oral",
-  "ʎ",   "lateral",    "palatal",        "voiced",     NA,           NA,             "oral", 
-  "ɾ",   "tap",        "alveolar",       "voiced",     NA,           NA,             "oral", 
-  "j",   "approximant","palatal",        "voiced",     NA,           NA,             "oral", 
-  "w",   "approximant","labiovelar",     "voiced",     NA,           NA,             "oral",
-  "j̃",   "approximant","palatal",        "voiced",     NA,           NA,             "nasal", 
-  "w̃",   "approximant","labiovelar",     "voiced",     NA,           NA,             "nasal"
-  "i",   "vowel",      NA,               "voiced",     "close",       "front",        "oral",
-  "e",   "vowel",      NA,               "voiced",     "close-mid",   "front",        "oral",
-  "ɛ",   "vowel",      NA,               "voiced",     "open-mid",    "front",        "oral",
-  "a",   "vowel",      NA,               "voiced",     "open",        "central",      "oral",
-  "u",   "vowel",      NA,               "voiced",     "close",       "back",         "oral",
-  "o",   "vowel",      NA,               "voiced",     "close-mid",   "back",         "oral",
-  "ɔ",   "vowel",      NA,               "voiced",     "open-mid",    "back",         "oral",
-  "ɨ",   "vowel",      NA,               "voiced",     "close",       "central",      "oral", 
-  "ɐ",   "vowel",      NA,               "voiced",     "near-open",   "central",      "oral", 
-  "ĩ",   "vowel",      NA,               "voiced",     "close",       "front",        "nasal",
-  "ẽ",   "vowel",      NA,               "voiced",     "close-mid",   "front",        "nasal",
-  "ã",   "vowel",      NA,               "voiced",     "open",        "central",      "nasal",
-  "õ",   "vowel",      NA,               "voiced",     "close-mid",   "back",         "nasal",
-  "ũ",   "vowel",      NA,               "voiced",     "close",       "back",         "nasal",
-  "ɐ̃",   "vowel",      NA,               "voiced",     "near-open",   "central",      "nasal"
+  ~fone, ~tipo,       ~ponto,            ~vozeamento,   ~altura,       ~anterioridade, ~nasalidade,
+  "p",   "plosive",     "bilabial",        "voiceless",   NA,            NA,             "oral",
+  "b",   "plosive",     "bilabial",        "voiced",      NA,            NA,             "oral",
+  "t",   "plosive",     "dental",          "voiceless",   NA,            NA,             "oral",
+  "d",   "plosive",     "dental",          "voiced",      NA,            NA,             "oral",
+  "k",   "plosive",     "velar",           "voiceless",   NA,            NA,             "oral",
+  "g",   "plosive",     "velar",           "voiced",      NA,            NA,             "oral",
+  "c",   "plosive",     "palatal",         "voiceless",   NA,            NA,             "oral",
+  "ɟ",   "plosive",     "palatal",         "voiced",      NA,            NA,             "oral",
+  "f",   "fricative",   "labiodental",     "voiceless",   NA,            NA,             "oral",
+  "v",   "fricative",   "labiodental",     "voiced",      NA,            NA,             "oral",
+  "s",   "fricative",   "alveolar",        "voiceless",   NA,            NA,             "oral",
+  "z",   "fricative",   "alveolar",        "voiced",      NA,            NA,             "oral",
+  "ʃ",   "fricative",   "palato-alveolar", "voiceless",   NA,            NA,             "oral",
+  "ʒ",   "fricative",   "palato-alveolar", "voiced",      NA,            NA,             "oral",
+  "x",   "fricative",   "velar",           "voiceless",   NA,            NA,             "oral",  
+  "ʁ",   "fricative",   "uvular",          "voiced",      NA,            NA,             "oral",  
+  "β",   "fricative",   "bilabial",        "voiced",      NA,            NA,             "oral",  
+  "ð",   "fricative",   "dental",          "voiced",      NA,            NA,             "oral",  
+  "tʃ",  "affricate",   "palato-alveolar", "voiceless",   NA,            NA,             "oral",  
+  "dʒ",  "affricate",   "palato-alveolar", "voiced",      NA,            NA,             "oral",  
+  "m",   "nasal",       "bilabial",        "voiced",      NA,            NA,             "nasal",
+  "n",   "nasal",       "alveolar",        "voiced",      NA,            NA,             "nasal",
+  "ɲ",   "nasal",       "palatal",         "voiced",      NA,            NA,             "nasal",
+  "ŋ",   "nasal",       "velar",           "voiced",      NA,            NA,             "nasal",
+  "l",   "lateral",     "alveolar",        "voiced",      NA,            NA,             "oral",
+  "ʎ",   "lateral",     "palatal",         "voiced",      NA,            NA,             "oral",  
+  "ɾ",   "tap",         "alveolar",        "voiced",      NA,            NA,             "oral",  
+  "j",   "approximant", "palatal",         "voiced",      NA,            NA,             "oral",  
+  "w",   "approximant", "labiovelar",      "voiced",      NA,            NA,             "oral",  
+  "j̃",   "approximant", "palatal",         "voiced",      NA,            NA,             "nasal", 
+  "w̃",   "approximant", "labiovelar",      "voiced",      NA,            NA,             "nasal", 
+  "i",   "vowel",       NA,                "voiced",      "close",       "front",        "oral",
+  "e",   "vowel",       NA,                "voiced",      "close-mid",   "front",        "oral",
+  "ɛ",   "vowel",       NA,                "voiced",      "open-mid",    "front",        "oral",
+  "a",   "vowel",       NA,                "voiced",      "open",        "central",      "oral",
+  "u",   "vowel",       NA,                "voiced",      "close",       "back",         "oral",
+  "o",   "vowel",       NA,                "voiced",      "close-mid",   "back",         "oral",
+  "ɔ",   "vowel",       NA,                "voiced",      "open-mid",    "back",         "oral",
+  "ɨ",   "vowel",       NA,                "voiced",      "close",       "central",      "oral",  
+  "ɐ",   "vowel",       NA,                "voiced",      "near-open",   "central",      "oral",  
+  "ĩ",   "vowel",       NA,                "voiced",      "close",       "front",        "nasal",
+  "ẽ",   "vowel",       NA,                "voiced",      "close-mid",   "front",        "nasal",
+  "ã",   "vowel",       NA,                "voiced",      "open",        "central",      "nasal",
+  "õ",   "vowel",       NA,                "voiced",      "close-mid",   "back",         "nasal",
+  "ũ",   "vowel",       NA,                "voiced",      "close",       "back",         "nasal",
+  "ɐ̃",   "vowel",       NA,                "voiced",      "near-open",   "central",      "nasal"
 )
 
 # --- FUNÇÕES AUXILIARES ---
@@ -144,7 +144,6 @@ fonetica_ui <- function(prefix) {
     ),
     conditionalPanel(
       condition = paste0("input['", ns("tipo"), "'] == 'vowel'"),
-      # As 'choices' aqui foram atualizadas para corresponder à sua tabela
       selectInput(ns("altura"), "Height:", choices = c("Any", "close", "close-mid", "open-mid", "open", "near-open")),
       selectInput(ns("anterioridade"), "Backness:", choices = c("Any", "front", "central", "back")),
       selectInput(ns("nasalidade"), "Nasality:", choices = c("Any", "oral", "nasal"))
@@ -207,6 +206,15 @@ server <- function(input, output, session) {
           h4("2. Phone Filter"),
           selectInput("posicao_anc", "Position in Syllable:",
                       choices = c("Any" = "Qualquer", "Onset" = "A", "Nucleus" = "N", "Coda" = "C")),
+          
+          # --- NOVO MENU SUSPENSO CONDICIONAL ---
+          conditionalPanel(
+            condition = "input.posicao_anc != 'Qualquer'",
+            selectInput("complexidade_anc", "Syllabic Structure:",
+                        choices = c("Any" = "Qualquer", "Simple" = "Simple", "Complex" = "Complex"))
+          ),
+          # --- FIM DA MODIFICAÇÃO ---
+          
           br(),
           p("Define the target phone's features:"),
           fonetica_ui("target_silabico")
@@ -240,7 +248,7 @@ server <- function(input, output, session) {
         h4(em("Corpus Mapper for Phonetic And Syllabic Structures")),
         
         hr(),
-
+        
         tags$p(
           
           "Developed by: ", br(),
@@ -252,7 +260,7 @@ server <- function(input, output, session) {
         
         hr(),
         h4("About"),
-        p("the", strong("COMPASS"), "Shiny application serves as the interactive graphical user interface for the pre-processed phonetic database. It empowers researchers to perform complex, multi-layered queries by combining a variety of structural and segmental filters. Users can specify criteria such as", strong("syllable tonicity"), "(e.g., tonic, pre-tonic)", strong("intra-syllabic position"), "(Onset, Nucleus, Coda), and a wide range of", strong("phonetic descriptions"), "like place and manner of articulation. The interface features a dynamic filtering system where menus intelligently update to show only valid feature combinations based on the current selections. Query results are presented in a clear", em("Key Word in Context"), "(KWIC) format, and the application alopens for the direct extraction of selected occurrences, enabling users to download the corresponding audio segments and", em(".TextGrid"), "files for further analysis."),
+        p("the", strong("COMPASS"), "Shiny application serves as the interactive graphical user interface for the pre-processed Phonetic database. It empowers researchers to perform complex, multi-layered queries by combining a variety of structural and segmental filters. Users can specify criteria such as", strong("syllable tonicity"), "(e.g., tonic, pre-tonic)", strong("intra-syllabic position"), "(Onset, Nucleus, Coda), and a wide range of", strong("phonetic descriptions"), "like place and manner of articulation. The interface features a dynamic filtering system where menus intelligently update to show only valid feature combinations based on the current selections. Query results are presented in a clear", em("Key Word in Context"), "(KWIC) format, and the application alopens for the direct extraction of selected occurrences, enabling users to download the corresponding audio segments and", em(".TextGrid"), "files for further analysis."),
         br(),
         h4("Contact"),
         p("For questions, suggestions, or collaborations, please contact:"),
@@ -306,7 +314,7 @@ server <- function(input, output, session) {
         group_by(internal_id_palavra) %>%
         mutate(
           across(
-            .cols = c(fone, tipo, ponto, vozeamento, altura, anterioridade, nasalidade),
+            .cols = c(fone, tipo, ponto, vozeamento, altura, anterioridade, nasalidade, complexidade_anc, posicao_anc), # Adicionado 'complexidade_anc' e 'posicao_anc'
             .fns = list(anterior = ~lag(., default = ""), seguinte = ~lead(., default = "")),
             .names = "{.col}_{.fn}"
           )
@@ -324,16 +332,26 @@ server <- function(input, output, session) {
             !is.na(id_tonica_na_palavra) & silaba_id_na_palavra == (id_tonica_na_palavra - 1) ~ "pretonica",
             !is.na(id_tonica_na_palavra) & silaba_id_na_palavra == (id_tonica_na_palavra + 1) ~ "postonica",
             TRUE ~ NA_character_
-          )
+          ),
+          # --- NOVA LÓGICA DE FILTRO ---
+          # Cria a coluna "posicao_anc_base" (A, N, ou C)
+          posicao_anc_base = stringr::str_sub(posicao_anc, 1, 1)
+          # --- FIM DA MODIFICAÇÃO ---
         ) %>%
-        select(posicao_geral, posicao_anc, tipo, ponto, vozeamento, altura, anterioridade, nasalidade) %>%
-        filter(!is.na(posicao_geral) & !is.na(posicao_anc) & !is.na(tipo)) %>%
+        select(posicao_geral, posicao_anc_base, complexidade_anc, tipo, ponto, vozeamento, altura, anterioridade, nasalidade) %>%
+        filter(!is.na(posicao_geral) & !is.na(posicao_anc_base) & !is.na(tipo)) %>%
         distinct()
       
       summary_table(summary_table_data)
       
       progress$set(message = "Finalizing...", value = 6)
-      corpus_data(df_otimizado)
+      
+      # --- NOVA LÓGICA DE FILTRO ---
+      # Adiciona a coluna 'posicao_anc_base' ao dataframe principal
+      df_final_para_app <- df_otimizado %>%
+        mutate(posicao_anc_base = stringr::str_sub(posicao_anc, 1, 1))
+      corpus_data(df_final_para_app)
+      # --- FIM DA MODIFICAÇÃO ---
       
       showNotification("Corpus loaded successfully!", type = "message", duration = 5)
       
@@ -352,9 +370,18 @@ server <- function(input, output, session) {
     if (pos_tonica_sel != "Qualquer") {
       tabela_contexto <- tabela_contexto %>% filter(posicao_geral == pos_tonica_sel)
     }
+    
+    # --- NOVA LÓGICA DE FILTRO (Menus) ---
     if (pos_anc_sel != "Qualquer") {
-      tabela_contexto <- tabela_contexto %>% filter(posicao_anc == pos_anc_sel)
+      tabela_contexto <- tabela_contexto %>% filter(posicao_anc_base == pos_anc_sel)
+      
+      # Filtra também pela complexidade, se selecionada
+      complex_sel <- input$complexidade_anc
+      if (!is.null(complex_sel) && complex_sel != "Qualquer") {
+        tabela_contexto <- tabela_contexto %>% filter(complexidade_anc == complex_sel)
+      }
     }
+    # --- FIM DA MODIFICAÇÃO ---
     
     opcoes_tipo <- sort(unique(na.omit(tabela_contexto$tipo)))
     sel_tipo_atual <- input[["target_silabico-tipo"]]
@@ -418,19 +445,32 @@ server <- function(input, output, session) {
         )
       }
       
+      # --- NOVA LÓGICA DE FILTRO (Busca) ---
+      
+      # 1. Filtra por Posição (A, N, C)
       df_etapa2 <- if (input$posicao_anc == "Qualquer") {
         df_etapa1
       } else {
-        df_etapa1 %>% filter(!is.na(posicao_anc) & posicao_anc == input$posicao_anc)
+        # Usa a nova coluna 'posicao_anc_base'
+        df_etapa1 %>% filter(!is.na(posicao_anc_base) & posicao_anc_base == input$posicao_anc)
       }
       
-      df_temp <- df_etapa2 %>% filter(!is.na(tipo))
+      # 2. Filtra por Complexidade (Simple, Complex)
+      df_etapa3 <- if (input$complexidade_anc == "Qualquer") {
+        df_etapa2
+      } else {
+        df_etapa2 %>% filter(complexidade_anc == input$complexidade_anc)
+      }
+      # --- FIM DA MODIFICAÇÃO ---
+      
+      
+      df_temp <- df_etapa3 %>% filter(!is.na(tipo))
       
       traco_tipo <- input[["target_silabico-tipo"]]
       if (traco_tipo != "Qualquer") {
         df_temp <- df_temp %>% filter(tipo == traco_tipo)
         
-        if (traco_tipo == 'vogal') {
+        if (traco_tipo == 'vowel') {
           traco_altura <- input[["target_silabico-altura"]]; if(traco_altura != "Qualquer") df_temp <- df_temp %>% filter(!is.na(altura) & altura == traco_altura)
           traco_anterioridade <- input[["target_silabico-anterioridade"]]; if(traco_anterioridade != "Qualquer") df_temp <- df_temp %>% filter(!is.na(anterioridade) & anterioridade == traco_anterioridade)
           traco_nasalidade <- input[["target_silabico-nasalidade"]]; if(traco_nasalidade != "Qualquer") df_temp <- df_temp %>% filter(!is.na(nasalidade) & nasalidade == traco_nasalidade)
@@ -439,9 +479,9 @@ server <- function(input, output, session) {
           traco_voz <- input[["target_silabico-voz"]]; if(traco_voz != "Qualquer") df_temp <- df_temp %>% filter(!is.na(vozeamento) & vozeamento == traco_voz)
         }
       }
-      df_etapa3 <- df_temp
+      df_etapa_final_features <- df_temp # Renomeado para clareza
       
-      ids_palavras_encontradas <- unique(df_etapa3$internal_id_palavra)
+      ids_palavras_encontradas <- unique(df_etapa_final_features$internal_id_palavra)
     }
     
     if (is.null(ids_palavras_encontradas) || length(ids_palavras_encontradas) == 0) {
@@ -611,8 +651,3 @@ server <- function(input, output, session) {
 
 # --- APPSHINY ---
 shinyApp(ui, server)
-
-
-
-
-
