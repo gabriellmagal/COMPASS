@@ -36,7 +36,7 @@ TODOS_FONE <- c(VOGAIS_IPA, CONSOANTES_E_GLIDES_IPA, ACENTO_TONICO)
 # Lista de Todos os Ataques Válidos (Simples e Complexos)
 ATAQUES_VALIDOS <- c(
   # Ataques Simples
-  "p","b","t","d","ð","k","g","f","v","s","z","ʃ","ʒ","m","n","ɲ","l","ʎ","ɾ","ʁ","x","c","ɡ","ɟ","β", "w", "j", "tʃ", "dʒ",
+  "p","b","t","d","ð","k","g","f","v","s","z","ʃ","ʒ","m","n","ɲ","l","ʎ","ɾ","ʁ","x","c","ɡ","ɟ","β","w","w̃","j","j̃", "tʃ", "dʒ",
   # Ataques Complexos (CC)
   "pl","bl","kl","ɡl","fl","vl","pɾ","bɾ","tɾ","dɾ","kɾ","ɡɾ","fɾ","vɾ",
   # Ataques Complexos (CG) - Consoante + Glide
@@ -243,6 +243,7 @@ for (nome_arquivo_base in arquivos_tg_nomes) {
 
 
 cat("\n--- Process completed! ---\n")
+
 
 
 
