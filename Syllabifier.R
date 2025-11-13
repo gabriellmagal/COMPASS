@@ -38,7 +38,7 @@ ATAQUES_VALIDOS <- c(
   # Ataques Simples
   "p","b","t","d","ð","k","g","f","v","s","z","ʃ","ʒ","m","n","ɲ","l","ʎ","ɾ","ʁ","x","c","ɡ","ɟ","β","w","w̃","j","j̃", "tʃ", "dʒ",
   # Ataques Complexos (CC)
-  "pl","bl","kl","ɡl","fl","vl","pɾ","bɾ","tɾ","dɾ","kɾ","ɡɾ","fɾ","vɾ", "bʎ"
+  "pl","bl","kl","ɡl","fl","vl","pɾ","bɾ","tɾ","dɾ","kɾ","ɡɾ","fɾ","vɾ", "bʎ",
   # Ataques Complexos (CG) - Consoante + Glide
   "kw", "ɡw", "bj", "pj", "kj", "ɡj", "mj", "nj", "lj", "fj", "vj", "sj", "zj", "ʃj", "ʒj", "tʃj", "dʒj",
   # Ataques Complexos (CCG) - Consoante + Consoante + Glide
@@ -243,6 +243,7 @@ for (nome_arquivo_base in arquivos_tg_nomes) {
 
 
 cat("\n--- Process completed! ---\n")
+
 
 
 
